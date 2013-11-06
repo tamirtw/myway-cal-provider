@@ -13,13 +13,19 @@ pools = {
 };
 days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
 
-for (pool in pools) {
+
+
+http.createServer(function (req, resp) {
+    for (pool in pools) {
     var url = 'http://www.thprd.org/schedules/schedule.cfm?cs_id=' + pools[pool];
     request(url, function(err, resp, body) {
         if (err)
             throw err;
         $ = cheerio.load(body);
         console.log(pool);
+        request.pipe(pool);
         // TODO: scraping goes here!
     });
 }
+ 
+})
