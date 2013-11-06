@@ -12,7 +12,8 @@
     "node"
   ],
   "scripts": {
-    "test": "make test"
+    "test": "make test",
+    "start": "node app.js --websocket-port=$OPENSHIFT_NODEJS_PORT --log-level=1"
   },
   "description": "A skeleton Node.JS project, with Mocha for testing.",
   "keywords": ["skeleton", "mocha"],
